@@ -7,6 +7,11 @@ import numpy as np
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from train import train_model
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import torchvision.transforms as T
+import seaborn as sns # Import seaborn
 
 # Define transformations for training and validation
 IMG_SIZE = 224 # CheXNet typically uses 224x224
@@ -107,15 +112,6 @@ with torch.no_grad():
         print(f"  {class_names[i]}: {prob:.4f}")
 
 print("Inference complete for a single sample.")
-# To perform inference on multiple images, you would iterate through your DataLoader
-# or batch your custom images and process them similarly.
-
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import torchvision.transforms as T
-import seaborn as sns # Import seaborn
-
 # Denormalize the image for display
 # We need the mean and std used in the original normalization
 # Mean: [0.485, 0.456, 0.406], Std: [0.229, 0.224, 0.225]
